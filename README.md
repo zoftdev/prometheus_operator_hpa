@@ -1,3 +1,4 @@
+```bash
 k apply -f kube-prometheus/manifests/
 k apply -f servicemonitor-envoy.yaml 
 k apply -f PrometheusRule-envoy-metrics.yml 
