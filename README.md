@@ -1,3 +1,9 @@
+kube_prometheous: https://github.com/coreos/kube-prometheus
++ fix clusterrole
+custome-metric: https://github.com/stefanprodan/k8s-prom-hpa
+ 
+
+For advance custom-metric-rule: https://github.com/DirectXMan12/k8s-prometheus-adapter/blob/master/docs/config-walkthrough.md
 ```bash
 k apply -f kube-prometheus/manifests/
 k apply -f servicemonitor-envoy.yaml 
