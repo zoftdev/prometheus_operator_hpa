@@ -1,0 +1,17 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  labels:
+    prometheus: k8s
+    role: alert-rules
+  name: envoy-metrics
+  namespace: monitoring  
+spec:
+  groups:  
+  - name: hpa
+    rules:
+      - expr: |
+          sum (rate(envoy_http_rq_total{envoy_http_conn_manager_prefix="ingress_http"}[1m]) ) by ( namespace,pod)
+        labels:
+          quantile: "0.99"
+        record: http_requests
